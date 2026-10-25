@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Front Plot Walkthrough</title>
+    <meta name="description" content="Walk around the front plot landscape plan (v5) in 3D, with a dog and a cat for company." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="hud">
+        <section class="card brand" aria-label="About this walkthrough">
+          <div class="eyebrow">Front plot · plan v5</div>
+          <h1>3D walkthrough</h1>
+          <p id="help" class="help">WASD or arrow keys to walk · Shift to run · drag to look · scroll to zoom</p>
+        </section>
+        <section class="card map" aria-label="Plot map">
+          <canvas id="minimap" aria-label="Map of the plot. Click to jump to that spot."></canvas>
+          <div class="maphint">Click the map to jump</div>
+        </section>
+        <nav class="card dock" aria-label="Walkthrough controls">
+          <label class="field" for="goto"><span>Go to</span>
+            <select id="goto">
+              <option value="start">Walkway</option>
+              <option value="stair">Main stair</option>
+              <option value="porch">Porch</option>
+              <option value="gate">Sliding gate</option>
+              <option value="carentry">Car entry</option>
+              <option value="carport">Carport</option>
+              <option value="garden">Garden bench</option>
+            </select>
+          </label>
+          <label class="field phone-only" for="timesel"><span>Time</span>
+            <select id="timesel">
+              <option value="morning">Morning</option>
+              <option value="noon">Noon</option>
+              <option value="evening">Evening</option>
+              <option value="night">Night</option>
+            </select>
+          </label>
+          <div class="seg wide-only" role="group" aria-label="Time of day">
+            <button type="button" data-time="morning" aria-pressed="true">Morning</button>
+            <button type="button" data-time="noon" aria-pressed="false">Noon</button>
+            <button type="button" data-time="evening" aria-pressed="false">Evening</button>
+            <button type="button" data-time="night" aria-pressed="false">Night</button>
+          </div>
+          <button type="button" id="labels" class="toggle" aria-pressed="true">Labels</button>
+        </nav>
+        <div id="joy" class="joy" hidden><div class="knob"></div></div>
+      </div>
+      <div id="loading" class="loading" role="status">
+        <div class="spinner" aria-hidden="true"></div>
+        <span>Laying the blocks and planting the trees…</span>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
